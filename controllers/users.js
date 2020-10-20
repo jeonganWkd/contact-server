@@ -52,6 +52,7 @@ exports.createUser = async (req, res, next) => {
   } catch (e) {
     await conn.rollback();
     res.status(500).json({ success: false });
+    return;
   }
 
   //트랜젝션 끝
@@ -69,7 +70,7 @@ exports.loginUser = async (req, res, next) => {
   let email = req.body.email;
   let passwd = req.body.passwd;
 
-  let query = "select * from movie_user where email = ?";
+  let query = "select * from contact_user where email = ?";
   let data = [email];
 
   let user_id;

@@ -1,7 +1,8 @@
 const express = require("express");
 
+//컨트롤러에 작성한 api함수 가져오기
 const {
-  getAllcontacts,
+  Allcontacts,
   createContact,
   updateContact,
   deleteContact,
@@ -12,7 +13,7 @@ const router = express.Router();
 
 router
   .route("/")
-  .get(getAllcontacts)
+  .get(Allcontacts)
   .post(createContact)
   .put(updateContact)
   .delete(deleteContact);

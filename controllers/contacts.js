@@ -3,8 +3,9 @@ const connection = require("../db/mysql_connection");
 //모든 주소록 데이터를 다 가져와서 20~30개씩 끊어 보낸다
 //@desc         모든 주소록 가져오기
 //@route        GET/api/v1/contacts?offset=0&limit=25
+
 //next는 미들웨어 사용을 위해 작성
-exports.getAllcontacts = async (req, res, next) => {
+exports.Allcontacts = async (req, res, next) => {
   let offset = req.query.offset;
   let limit = req.query.limit;
   let query = `select * from contact limit ${offset}, ${limit}`;
@@ -20,7 +21,6 @@ exports.getAllcontacts = async (req, res, next) => {
 //@desc         주소록 1개 추가하기
 //@route        POST/api/v1/contacts
 exports.createContact = async (req, res, next) => {
-  let offset = req.query.offset
   let name = req.body.name;
   let phone_number = req.body.phone_number;
   let query = "insert into contact (name, phone_number) values ?";
